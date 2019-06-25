@@ -40,7 +40,7 @@ Your database should contain the following tables with the following attributes:
 
 1. admintable
   
-#	Name	      Type	          Collation	          Attributes	    Null	    Default   	Comments    	            Extra
+ 	Name	      Type	          Collation	          Attributes	    Null	    Default   	Comments    	            Extra
 1	username    varchar(40)	    latin1_swedish_ci		                No	      None		    admin username
 2	password	  varchar(40)	    latin1_swedish_ci		                No	      None		    admin password
 3	lastlogin	  timestamp			                                      No	      None		    each admin's last login
@@ -53,7 +53,7 @@ PRIMARY 	BTREE	  Yes	      No	      username	  1	(number of entries)     A	     
 2. applications
 
 
-#	Name	        Type	            Collation	          Attributes	   Null  	    Default	      Comments	                    Extra
+ 	Name	        Type	            Collation	          Attributes	   Null  	    Default	      Comments	                    Extra
 1	username	    varchar(100)	    latin1_swedish_ci		                No	      None		      Username of the applicant
 2	job	          int(40)			                                          No	      None		      job id of the particular job
 
@@ -61,7 +61,7 @@ PRIMARY 	BTREE	  Yes	      No	      username	  1	(number of entries)     A	     
 3. jobtypes
 
 
-#	Name	    Type	          Collation	          Attributes	    Null	    Default	    Comments	  Extra
+	Name	    Type	          Collation	          Attributes	    Null	    Default	    Comments	  Extra
 1	type     	varchar(40)	    latin1_swedish_ci		                No	      None		
 
 Indexes
@@ -72,7 +72,7 @@ type	    BTREE	    Yes	        No	       type	    5(number of entries)    A	    
 4. jobs
 
 
-#	Name    	    Type	        Collation	          Attributes	     Null	    Default	    Comments	                      Extra
+	Name    	    Type	        Collation	          Attributes	     Null	    Default	    Comments	                      Extra
 1	type	        varchar(40)	  latin1_swedish_ci		                  No	     None		    job type
 2	exp	          varchar(11)	  latin1_swedish_ci		                  No	     None		    experience required
 3	domain	      varchar(40)	  latin1_swedish_ci		                  No	     None		    domain of job(eg-ml,app dev)
@@ -91,7 +91,7 @@ PRIMARY	    BTREE	    Yes	        No	         id	        6(number of entries)   
 5. usertable
 
 
-#	Name	        Type	          Collation	          Attributes	  Null	  Default	    Comments	                            Extra
+	Name	        Type	          Collation	          Attributes	  Null	  Default	    Comments	                            Extra
 1	fullname	    varchar(100)	  latin1_swedish_ci		              No	    None		    Applicant's name
 2	email       	varchar(100)	  latin1_swedish_ci		              No	    None		    Applicant's email id
 3	password	    varchar(40)	    latin1_swedish_ci		              No	    None		    Applicant's password
