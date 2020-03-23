@@ -124,7 +124,7 @@ echo 'Your last login was on '.date("d, F, Y h:i:s A", strtotime($_SESSION['time
 							Vacancy: Vacant<br>
 							Job Id:'.$row[6].'<br>
 							<div class="modal-footer">
-							<form method="post">
+							<form method="post" action="./jobman.php">
 								<button name="test" class="btn btn-success" value='.$row[6].'>Change Vacancy</button>
 							</form>
 							</div>
@@ -138,7 +138,7 @@ echo 'Your last login was on '.date("d, F, Y h:i:s A", strtotime($_SESSION['time
 							Vacancy: Not Vacant<br>
 							Job Id:'.$row[6].'<br>
 							<div class="modal-footer">
-							<form method="post">
+							<form method="post" action="./jobman.php">
 								<button name="test" class="btn btn-success" value='.$row[6].'>Change Vacancy</button>
 							</form>
 							</div>
@@ -157,6 +157,7 @@ echo 'Your last login was on '.date("d, F, Y h:i:s A", strtotime($_SESSION['time
 						$result=mysqli_query($con,"update jobs set vacancy=0 where id='$id'");
 					}
 					header('location: jobman.php');
+					echo "<meta http-equiv='refresh' content='0'>";
 				}
 			
 			

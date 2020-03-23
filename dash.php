@@ -25,8 +25,13 @@
 include('db.php');
 include ('authlogin.php');
 
+if($_SESSION['f']==0){
 echo '<h3><i>Welcome back '.$_SESSION['username']."<br>";
-echo 'Your last login was on '.date("d, F, Y h:i:s A", strtotime($_SESSION['time']))." GMT</i></h3>";
+echo 'Your last login was on '.date("d, F, Y h:i:s A", strtotime($_SESSION['time']))." GMT</i></h3>";}
+
+else{
+echo '<h3><i>Welcome '.$_SESSION['username']."<br>";
+}
 ?>
 </div>
 <br><br>
@@ -146,8 +151,8 @@ echo 'Your last login was on '.date("d, F, Y h:i:s A", strtotime($_SESSION['time
 				$result=mysqli_query($con,"UPDATE jobs set vacancy=0 WHERE id='$job'");
 				$result=mysqli_query($con,"select * from usertable where resume='$username'");
 				$to=mysqli_fetch_row($result)[1];
-				$email = 'your email id';
-				$password = 'your password';
+				$email = 'jobseekingportal@gmail.com';
+				$password = 'jobseeker123';
 				$message = "Congratulations!! You have been selected for the job.";
 				$subject = "Job Opportunity";
 
@@ -160,7 +165,7 @@ echo 'Your last login was on '.date("d, F, Y h:i:s A", strtotime($_SESSION['time
 				$mail->SMTPAuth = true;
 				$mail->Username = $email;
 				$mail->Password = $password;
-				$mail->SetFrom("Your email id","Your name");
+				$mail->SetFrom("jobseekingportal@gmail.com.com","Umang");
     
 				// Email Sending Details
 				$mail->addAddress($to);
@@ -183,8 +188,8 @@ echo 'Your last login was on '.date("d, F, Y h:i:s A", strtotime($_SESSION['time
 				$result=mysqli_query($con,"DELETE FROM applications WHERE username='$username' AND job='$job'");
 				$result=mysqli_query($con,"select * from usertable where resume='$username'");
 				$to=mysqli_fetch_row($result)[1];
-				$email = 'Your email id';
-				$password = 'your password';
+				$email = 'jobseekingportal@gmail.com';
+				$password = 'jobseeker123';
 				$message = "Sorry!! You have not been selected for the job.";
 				$subject = "Job Application";
 
@@ -197,7 +202,7 @@ echo 'Your last login was on '.date("d, F, Y h:i:s A", strtotime($_SESSION['time
 				$mail->SMTPAuth = true;
 				$mail->Username = $email;
 				$mail->Password = $password;
-				$mail->SetFrom("your email id","Name");
+				$mail->SetFrom("jobseekingportal@gmail.com.com","Name");
 
 				// Email Sending Details
 				$mail->addAddress($to);

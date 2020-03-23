@@ -10,7 +10,7 @@
 <body>
 <div class = "login-box ml-auto mr-auto" align="center">
 <div class = "col-md-6 card" style="margin-left:0 !important;">
-<h2 align = "center" style = "text-decoration: underline;"><br> LOGIN </h2><br>
+<h2 align = "center" style = "text-decoration: underline;"><br> SIGNUP </h2><br>
 <br>
 <?php
 include ('db.php');
@@ -18,17 +18,17 @@ session_start();
 if(isset($_POST['user'])){
 $name = $_POST['user'];
 $password = md5($_POST['password']);
-$s = "select * from admintable where username = '$name' && password = '$password'";
+$s = "select * from admintable where username = '$name' ";
 $result = mysqli_query($con, $s);
 $num  =  mysqli_num_rows($result);
-if($num==1)
+if($num==0)
 {
 $flag=0;
-$_SESSION['f']=0;
 $_SESSION['username']=$name;
+$_SESSION['f']=1;
 $_SESSION['time']=mysqli_fetch_array(mysqli_query($con,"select lastlogin from admintable where username = '$name'"))['lastlogin'];
 $tim=date('Y-m-d H:i:s');
-$result=mysqli_query($con,"update admintable set lastlogin='$tim' where username = '$name'");
+$result=mysqli_query($con,"insert into admintable values( '$name','$password',now())");
 header ('location:dash.php');
 }
 else
@@ -52,8 +52,7 @@ $flag=1;
 </div>
 
 &nbsp &nbsp <div class="ml-auto mr-auto"><button type = "submit" class = "btn btn-primary"  >  LOGIN</button>  </div>
-<center><a href="./signup.php">Create an account</a></center>
-
+<center><a href="./login_page.php">Login to an existing account</a></center>
 </form>
 
 </div>

@@ -359,8 +359,8 @@ if (isset($_POST['email'])) {
 				require('./SMTP.php');
 				$result=mysqli_query($con,"select * from usertable where resume='$username'");
 				$to=mysqli_fetch_row($result)[1];
-				$email = 'your email id';
-				$password = 'your password';
+				$email = 'jobseekingportal@gmail.com';
+				$password = 'jobseeker123';
 				$message = "You have applied for a job.";
 				$subject = "Job Application";
 
@@ -373,7 +373,7 @@ if (isset($_POST['email'])) {
 				$mail->SMTPAuth = true;
 				$mail->Username = $email;
 				$mail->Password = $password;
-				$mail->SetFrom("your email id","Name");
+				$mail->SetFrom("jobseekingportal@gmail.com.com","Name");
 
 				// Email Sending Details
 				$mail->addAddress($to);
